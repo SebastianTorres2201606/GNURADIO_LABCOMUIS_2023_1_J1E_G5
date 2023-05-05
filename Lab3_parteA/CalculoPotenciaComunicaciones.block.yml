@@ -1,0 +1,34 @@
+id: CalculoPotenciaComunicaciones
+label: QT GUI CalculoPotenciaComunicaciones
+category: '[ModulosEfren]'
+flags: need_qt_gui
+
+parameters:
+-   id: l_vect
+    label: Longitud FFT
+    dtype: int
+    default: '1024'
+    hide: none
+-   id: gui_hint
+    label: GUI Hint
+    dtype: gui_hint
+    hide: part
+
+inputs: []
+
+outputs: []
+
+templates:
+    imports: 'from CalculoPotenciaComunicaciones import CalculoPotenciaComunicaciones  #
+        grc-generated hier_block'
+    make: "CalculoPotenciaComunicaciones(\n    l_vect=${ l_vect },\n)\nself.connect(self.${id})\n\
+        <% win = 'self.%s'%id %>\n${ gui_hint() % win }"
+    callbacks:
+    - set_l_vect(${ l_vect })
+
+documentation: 'EfrenAcevedo
+
+    /home/uis-e3t/Escritorio/LabCom_J1E_G5/Lab3_parteA/CalculoPotenciaComunicaciones.py'
+grc_source: /home/uis-e3t/Escritorio/LabCom_J1E_G5/Lab3_parteA/Lab3.grc
+
+file_format: 1

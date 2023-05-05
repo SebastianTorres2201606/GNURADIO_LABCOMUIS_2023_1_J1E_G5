@@ -1,0 +1,34 @@
+id: calculoP
+label: QT GUI calculoP
+category: '[J1E_G5]'
+flags: need_qt_gui
+
+parameters:
+-   id: l_vect
+    label: Longitud FFT
+    dtype: int
+    default: '1024'
+    hide: none
+-   id: gui_hint
+    label: GUI Hint
+    dtype: gui_hint
+    hide: part
+
+inputs:
+-   label: in
+    dtype: float
+    vlen: 1
+
+outputs: []
+
+templates:
+    imports: 'from calculoP import calculoP  # grc-generated hier_block'
+    make: "calculoP(\n    l_vect=${ l_vect },\n)\n<% win = 'self.%s'%id %>\n${ gui_hint()\
+        \ % win }"
+    callbacks:
+    - set_l_vect(${ l_vect })
+
+documentation: /home/uis-e3t/Escritorio/LabCom_J1E_G5/Lab3_parteA/calculoP.py
+grc_source: /home/uis-e3t/Escritorio/LabCom_J1E_G5/Lab3_parteA/Lab3.grc
+
+file_format: 1
