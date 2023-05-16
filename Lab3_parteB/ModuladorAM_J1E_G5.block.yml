@@ -1,0 +1,39 @@
+id: ModuladorAM_J1E_G5
+label: ModuladorAM_J1E_G5
+category: '[ModulosEfren]'
+
+parameters:
+-   id: Ac
+    label: "Amplitud se\xF1al portadora"
+    dtype: real
+    default: '1'
+    hide: none
+-   id: ka
+    label: Coeficiente ka
+    dtype: real
+    default: '1'
+    hide: none
+
+inputs:
+-   label: m(t)
+    dtype: float
+    vlen: 1
+
+outputs:
+-   label: s(t)
+    dtype: complex
+    vlen: 1
+
+templates:
+    imports: 'from ModuladorAM_J1E_G5 import ModuladorAM_J1E_G5  # grc-generated hier_block'
+    make: "ModuladorAM_J1E_G5(\n    Ac=${ Ac },\n    ka=${ ka },\n)"
+    callbacks:
+    - set_Ac(${ Ac })
+    - set_ka(${ ka })
+
+documentation: 'Efren Acevedo
+
+    /home/uis-e3t/Escritorio/LabCom_J1E_G5/Lab3_parteB/ModuladorAM_J1E_G5.py'
+grc_source: /home/uis-e3t/Escritorio/LabCom_J1E_G5/Lab3_parteB/ModuladorAM_J1E_G5.grc
+
+file_format: 1
